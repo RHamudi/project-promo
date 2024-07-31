@@ -34,5 +34,21 @@ namespace Promocoes.Infrastructure.Input.Repositories
             }
         }
 
+        public void UpdateUserByBusiness(string idUser, string idBusiness)
+        {
+            var query = new BusinessQueries().UpdateUserByBusinessQuery(idUser, idBusiness);
+
+            try
+            {
+                using (_connection)
+                {
+                    _connection.Execute(query.Query, query.Parameters);
+                }
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
     }
 }
