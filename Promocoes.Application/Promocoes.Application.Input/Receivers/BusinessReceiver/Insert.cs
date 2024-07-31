@@ -23,6 +23,7 @@ namespace Promocoes.Application.Input.Receivers.BusinessReceiver
             var uploadImage = ImgurUploadImage.UploadImage(auth, request.Logo);
             var contacts = new Contacts(request.Email, request.Number, request.Site);
             var category = (ECategory)request.Category;
+
             var business = new BusinessEntity(request.Name, request.Description,
                 uploadImage.Result.Link, request.Location, contacts, category,
                 request.Operation, request.GeoData, request.IdUser);
@@ -33,6 +34,7 @@ namespace Promocoes.Application.Input.Receivers.BusinessReceiver
             try 
             {
                 _repository.InsertBusiness(business);
+                _repository.UpdateUserByBusiness(business.IdUser, business.IdUser);
                 return Task.FromResult(new State(200, "Empresa adicionada com sucesso", business));
             }
             catch
