@@ -49,6 +49,23 @@ namespace Promocoes.Infrastructure.Input.Queries
             return new QueryModel(Query, Parameters);
         }
 
-        
+        public QueryModel UpdateUserByBusinessQuery(string idUser, string idBusiness)
+        {
+            Table = Map.GetTableUser();
+
+            Query = $@"
+                UPDATE public.tb_users
+                SET idbusiness = @idBusiness
+                WHERE iduser = @idUser;
+            ";
+
+            Parameters = new
+            {
+                idBusiness,
+                idUser
+            };
+
+            return new QueryModel(Query, Parameters);
+        }
     }
 }
