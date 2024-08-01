@@ -1,5 +1,6 @@
 using System.Data;
 using Dapper;
+using Microsoft.AspNetCore.Diagnostics;
 using Promocoes.Application.Input.Commands.BusinessContext;
 using Promocoes.Application.Input.Repositories.Interfaces;
 using Promocoes.Domain.Entities;
@@ -23,10 +24,8 @@ namespace Promocoes.Infrastructure.Input.Repositories
 
             try
             {
-                using(_connection)
-                {
-                     _connection.Execute(query.Query, query.Parameters);
-                }
+                _connection.Open();
+                _connection.Execute(query.Query, query.Parameters);
             }
             catch
             {
@@ -40,14 +39,12 @@ namespace Promocoes.Infrastructure.Input.Repositories
 
             try
             {
-                using (_connection)
-                {
-                    _connection.Execute(query.Query, query.Parameters);
-                }
+                _connection.Execute(query.Query, query.Parameters);
+                _connection.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception();
+                Console.WriteLine(ex);
             }
         }
     }
