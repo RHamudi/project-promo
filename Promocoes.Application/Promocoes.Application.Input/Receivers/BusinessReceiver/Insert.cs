@@ -37,9 +37,10 @@ namespace Promocoes.Application.Input.Receivers.BusinessReceiver
                 _repository.UpdateUserByBusiness(business.IdUser, business.IdUser);
                 return Task.FromResult(new State(200, "Empresa adicionada com sucesso", business));
             }
-            catch
+            catch(Exception ex)
             {
-                return Task.FromResult(new State(500, "Erro Inesperado", null));
+                return Task.FromResult(new State(500, "Erro Interno Do Servidor", ex.Data));
+                //return Task.FromResult(new State(500, "Erro Inesperado", null));
             }
         }
     }
