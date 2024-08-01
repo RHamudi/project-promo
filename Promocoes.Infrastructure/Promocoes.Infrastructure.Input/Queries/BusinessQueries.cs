@@ -54,18 +54,18 @@ namespace Promocoes.Infrastructure.Input.Queries
             Table = Map.GetTableUser();
 
             Query = $@"
-                UPDATE public.tb_users
-                SET idbusiness = @idBusiness
-                WHERE iduser = @idUser;
+                UPDATE {this.Table}
+                SET idbusiness = '{idBusiness}'
+                WHERE iduser = '{idUser}';
             ";
 
             Parameters = new
             {
-                idBusiness,
-                idUser
+                idBusiness = idBusiness,
+                idUser = idUser
             };
 
-            return new QueryModel(Query, Parameters);
+            return new QueryModel(Query, null);
         }
     }
 }
