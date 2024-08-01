@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Promocoes.API",
-    "\\Promocoes.Application\\Promocoes.Application.Output"
+    "\\Promocoes.Infrastructure",
+    "\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input",
+    "\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries",
+    "\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Repositories"
   ],
-  "SelectedNode": "\\Promocoes.API\\Promocoes.API.csproj",
+  "SelectedNode": "\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Repositories\\AuthenticationRepository.cs",
   "PreviewInSolutionExplorer": false
 }

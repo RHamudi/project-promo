@@ -6,3 +6,4 @@ obj/
 publish_output/
 .env
 .vs/
+out/
