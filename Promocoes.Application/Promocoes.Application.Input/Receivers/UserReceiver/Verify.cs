@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using OneOf;
 using Promocoes.Application.Input.Commands.UserContext;
 using Promocoes.Application.Input.Repositories.Interfaces;
+using Promocoes.Errors;
 
 namespace Promocoes.Application.Input.Receivers.UserReceiver
 {
-    public class Verify : IRequestHandler<VerificationCommand, State>
+    public class Verify : IRequestHandler<VerificationCommand, OneOf<VerificationCommand, AppError>>
     {
         private readonly IWriteUserRepository _repository;
 
@@ -17,24 +19,14 @@ namespace Promocoes.Application.Input.Receivers.UserReceiver
             _repository = repository;
         }
 
-        public Task<State> Handle(VerificationCommand request, CancellationToken cancellationToken)
+        public async Task<OneOf<VerificationCommand, AppError>> Handle(VerificationCommand request, CancellationToken cancellationToken)
         {
             var verifyToken = _repository.VerifyUser(request);
+            
+            if(verifyToken.IsT1) return verifyToken.AsT1;
 
-            if(verifyToken == null)
-            {
-                return Task.FromResult(new State(400, "Token Invalido", null));
-            }
-
-            try
-            {
-                _repository.UpdateUserDate(DateTime.Now, request.Token);
-                return Task.FromResult(new State(200, "User Verificado!", null));
-            }catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
+            _repository.UpdateUserDate(DateTime.Now, request.Token);
+            return verifyToken.AsT0;
         }
     }
 }
