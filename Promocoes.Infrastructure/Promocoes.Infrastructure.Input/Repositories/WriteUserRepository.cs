@@ -4,9 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.IdentityModel.Tokens;
+using OneOf;
 using Promocoes.Application.Input.Commands.UserContext;
 using Promocoes.Application.Input.Repositories.Interfaces;
 using Promocoes.Domain.Entities;
+using Promocoes.Errors;
+using Promocoes.Errors.Exceptions.infra.output;
+using Promocoes.Errors.Exceptions.infra.output.User;
 using Promocoes.Infrastructure.Input.Queries;
 using Promocoes.Infrastructure.Shared.Factory;
 
@@ -21,7 +26,7 @@ namespace Promocoes.Infrastructure.Input.Repositories
             _connection = SqlFactory.SqlFactoryConnection();
         }
 
-        public void InsertUser(UserEntity user)
+        public OneOf<UserEntity, AppError> InsertUser(UserEntity user)
         {
             var query = new UserQueries().InsertUser(user);
 
@@ -31,11 +36,12 @@ namespace Promocoes.Infrastructure.Input.Repositories
                 {
                     _connection.Query(query.Query, query.Parameters);
                     _connection.Close();
+                    return user;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new Exception(ex.Message);
+                return new InsertUserDbError();
             }
         }
 
@@ -60,7 +66,7 @@ namespace Promocoes.Infrastructure.Input.Repositories
             }
         }
 
-        public void UpdateUser(UpdateUserCommand user)
+        public OneOf<UpdateUserCommand, AppError> UpdateUser(UpdateUserCommand user)
         {
             var query = new UserQueries().UpdateUser(user);
 
@@ -70,14 +76,15 @@ namespace Promocoes.Infrastructure.Input.Repositories
                 {
                     _connection.Query(query.Query, query.Parameters);
                     _connection.Close();
+                    return user;
                 }
-            }catch (Exception ex)
+            }catch 
             {
-                throw new Exception(ex.Message);
+                return new InsertDbError();
             }
         }
 
-        public VerifyTokenDTO VerifyUser(VerificationCommand verify)
+        public OneOf<VerificationCommand, AppError> VerifyUser(VerificationCommand verify)
         {
             var query = new UserQueries().VerifyTokenQuery(verify.Token);
 
@@ -87,11 +94,11 @@ namespace Promocoes.Infrastructure.Input.Repositories
                     _connection.Open();
                     token = _connection.QueryFirstOrDefault<VerifyTokenDTO>(query.Query, query.Parameters);
                     _connection.Close();
-                    return token;
-                
-            }catch (Exception ex)
+                    if(token.VerificationToken.IsNullOrEmpty()) return new TokenNotFoundError();
+                    return new VerificationCommand() {Token = token.VerificationToken};
+            }catch
             {
-                throw new Exception(ex.Message);
+                return new VerifyUserEmailError();
             }
         }
 

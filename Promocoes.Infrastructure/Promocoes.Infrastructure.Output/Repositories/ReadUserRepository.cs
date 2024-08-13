@@ -1,7 +1,11 @@
 using System.Data;
 using Dapper;
+using OneOf;
 using Promocoes.Application.Output.DTOs;
 using Promocoes.Application.Output.Interfaces;
+using Promocoes.Errors;
+using Promocoes.Errors.Exceptions.infra.output;
+using Promocoes.Errors.Exceptions.infra.output.User;
 using Promocoes.Infrastructure.Output.Queries;
 using Promocoes.Infrastructure.Shared.Factory;
 
@@ -24,7 +28,7 @@ namespace Promocoes.Infrastructure.Output.Repositories
             {
                 using(_connection)
                 {
-                    return _connection.Query<UserDTO>(query.Query, query.Parameters);
+                    return  _connection.Query<UserDTO>(query.Query, query.Parameters);
                 }
             }
             catch (Exception ex)
@@ -33,22 +37,18 @@ namespace Promocoes.Infrastructure.Output.Repositories
             }
         }
 
-        public UserDTO GetUserById(Guid user)
+        public OneOf<UserDTO, AppError> GetUserById(Guid user)
         {
             var query = new UserQueries().GetUserById(user);
 
-            try
+            
+            using(_connection)
             {
-                using(_connection)
-                {
-                    return _connection.QueryFirstOrDefault<UserDTO>(query.Query, query.Parameters);
-                }
+                var result = _connection.QueryFirstOrDefault<UserDTO>(query.Query, query.Parameters);
+                if (result == null) return new UserNotFoundError();
+                return result;
             }
-            catch (Exception ex)
-            {
-                
-                throw new Exception(ex.Message);
-            }
+            
         }
     }
 }
