@@ -135,7 +135,7 @@ namespace Promocoes.Infrastructure.Input.Queries
             this.Query = $@"
                     UPDATE tb_users
                     SET VerifietAt = '{date}'
-                    WHERE VerificationToken = '{token}'
+                    WHERE VerificationToken = '{token} AND VerifietAt IS NULL'
             ";
             
             this.Parameters = null;
