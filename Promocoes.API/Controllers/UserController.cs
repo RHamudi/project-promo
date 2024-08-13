@@ -26,7 +26,10 @@ namespace Promocoes.API.Controllers
         public async Task<IActionResult> Insert([FromBody] UserCommand command)
         {
             var result = await _mediator.Send(command);
-            return Ok(result);
+            return result.Match<IActionResult>(
+                user => Ok(user),
+                error => BadRequest(error)
+                );
         }
 
         [HttpGet("getall")]
@@ -40,7 +43,9 @@ namespace Promocoes.API.Controllers
         public async Task<IActionResult> Update([FromBody] UpdateUserCommand command)
         {
             var result = await _mediator.Send(command);
-            return Ok(result);
+            return result.Match<IActionResult>(
+                (user) => Ok(user),
+                (error) => BadRequest(error));
         }
 
         [OutputCache(NoStore = true, Duration = 0)]
@@ -48,12 +53,10 @@ namespace Promocoes.API.Controllers
         public async Task<IActionResult> Authentication([FromBody] AuthenticationCommand model)
         {
             var result = await _mediator.Send(model);
-            if(result.StatusCode == 400)
-            {
-                return BadRequest(result);
-            } else {
-                return Ok(result);
-            }
+            return result.Match<IActionResult>(
+                Ok,
+                BadRequest
+                );
         }
 
         [OutputCache(NoStore = true, Duration = 0)]
@@ -61,7 +64,10 @@ namespace Promocoes.API.Controllers
         public async Task<IActionResult> VerifyUser([FromQuery] VerificationCommand command)
         {
             var result = await _mediator.Send(command);
-            return Ok(result);
+            return result.Match<IActionResult>(
+                Ok,
+                BadRequest
+            );
         }
     }
 }
