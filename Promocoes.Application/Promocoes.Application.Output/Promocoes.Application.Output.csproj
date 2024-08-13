@@ -2,11 +2,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Promocoes.Domain\Promocoes.Domain.csproj" />
+    <ProjectReference Include="..\..\Promocoes.Errors\Promocoes.Errors.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="2.0.1" />
     <PackageReference Include="mediatr" Version="12.1.1" />
+    <PackageReference Include="OneOf" Version="3.0.271" />
   </ItemGroup>
 
   <PropertyGroup>

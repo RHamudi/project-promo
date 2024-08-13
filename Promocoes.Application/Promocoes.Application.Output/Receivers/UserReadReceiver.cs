@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using OneOf;
 using Promocoes.Application.Output.DTOs;
 using Promocoes.Application.Output.Interfaces;
+using Promocoes.Errors;
+using Promocoes.Errors.Exceptions.infra.output;
 
 namespace Promocoes.Application.Output.Receivers
 {
@@ -17,11 +20,11 @@ namespace Promocoes.Application.Output.Receivers
             _repository = repository;
         }
 
-        public Task<State> Handle(UserDTO request, CancellationToken cancellationToken)
+        public async Task<State> Handle(UserDTO request, CancellationToken cancellationToken)
         {
             var getUsers = _repository.GetAllUsers();
 
-            return Task.FromResult(new State(200, "Usuarios coletados com sucesso", getUsers));
+           return await Task.FromResult(new State(200, "Usuarios coletados com sucesso", getUsers));
         }
     }
 }

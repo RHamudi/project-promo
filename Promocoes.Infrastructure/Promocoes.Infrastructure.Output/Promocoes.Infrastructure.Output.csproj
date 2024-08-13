@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Promocoes.Errors\Promocoes.Errors.csproj" />
     <ProjectReference Include="..\Promocoes.Infrastructure.Shared\Promocoes.Infrastructure.Shared.csproj" />
     <ProjectReference Include="..\..\Promocoes.Application\Promocoes.Application.Output\Promocoes.Application.Output.csproj" />
   </ItemGroup>

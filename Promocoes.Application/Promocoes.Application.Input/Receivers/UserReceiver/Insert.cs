@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using OneOf;
 using Promocoes.Application.Input.Commands.UserContext;
 using Promocoes.Application.Input.Repositories.Interfaces;
 using Promocoes.Application.Input.Services.SendEmail;
 using Promocoes.Domain.Entities;
+using Promocoes.Errors;
+using Promocoes.Errors.Exceptions.infra.output;
+using Promocoes.Errors.Exceptions.infra.output.User;
 
 namespace Promocoes.Application.Input.Receivers.UserReceiver
 {
-    public class Insert : IRequestHandler<UserCommand, State>
+    public class Insert : IRequestHandler<UserCommand, OneOf<UserEntity, AppError>>
     {
         private readonly IWriteUserRepository _repository;
 
@@ -19,25 +23,25 @@ namespace Promocoes.Application.Input.Receivers.UserReceiver
             _repository = repository;
         }
 
-        public Task<State> Handle(UserCommand request, CancellationToken cancellationToken)
+        public async Task<OneOf<UserEntity, AppError>> Handle(UserCommand request, CancellationToken cancellationToken)
         {
             var user = new UserEntity(request.Name, request.Email, request.Password, request.IdBusiness, null);
 
             if(!user.IsValid())
             {
-                return Task.FromResult(new State(400, "Não foi possivel adicionar usuario", user.Notifications));
+                return new UserValidationsError(user.Notifications);
             }
-
-            
+  
             try
             {
-                _repository.InsertUser(user);
-                var teste = ClientSmtp.SendEmail(user.Email, "Por favor verifique sua conta!", user.VerificationToken);
-                return Task.FromResult(new State(200, "Usuario inserido com sucesso", user));
+                var result = _repository.InsertUser(user);
+                _ = ClientSmtp.SendEmail(user.Email, "Por favor verifique sua conta!", user.VerificationToken);
+                if (result.IsT0) return result.AsT0;
+                return result;
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new Exception(ex.Message);
+                return new InsertDbError();
             }
         }
     }

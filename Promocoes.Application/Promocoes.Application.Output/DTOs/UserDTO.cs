@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using OneOf;
+using Promocoes.Errors;
+
 
 namespace Promocoes.Application.Output.DTOs
 {

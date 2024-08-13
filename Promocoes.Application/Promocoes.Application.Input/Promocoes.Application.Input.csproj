@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Promocoes.Domain\Promocoes.Domain.csproj" />
+    <ProjectReference Include="..\..\Promocoes.Errors\Promocoes.Errors.csproj" />
     <ProjectReference Include="..\..\Promocoes.Infrastructure\Promocoes.Infrastructure.Shared\Promocoes.Infrastructure.Shared.csproj" />
     <ProjectReference Include="..\Promocoes.Application.Output\Promocoes.Application.Output.csproj" />
   </ItemGroup>

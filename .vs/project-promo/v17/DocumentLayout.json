@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Repositories\\project-promo-back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E3FB15F1-A827-4339-B1CD-EF0293BD257A}|Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Promocoes.Infrastructure.Input.csproj|c:\\repositories\\project-promo-back\\promocoes.infrastructure\\promocoes.infrastructure.input\\queries\\businessqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3FB15F1-A827-4339-B1CD-EF0293BD257A}|Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Promocoes.Infrastructure.Input.csproj|solutionrelative:promocoes.infrastructure\\promocoes.infrastructure.input\\queries\\businessqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3FB15F1-A827-4339-B1CD-EF0293BD257A}|Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Promocoes.Infrastructure.Input.csproj|c:\\repositories\\project-promo-back\\promocoes.infrastructure\\promocoes.infrastructure.input\\queries\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3FB15F1-A827-4339-B1CD-EF0293BD257A}|Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Promocoes.Infrastructure.Input.csproj|solutionrelative:promocoes.infrastructure\\promocoes.infrastructure.input\\queries\\userqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3FB15F1-A827-4339-B1CD-EF0293BD257A}|Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Promocoes.Infrastructure.Input.csproj|c:\\repositories\\project-promo-back\\promocoes.infrastructure\\promocoes.infrastructure.input\\repositories\\writebusinessrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3FB15F1-A827-4339-B1CD-EF0293BD257A}|Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Promocoes.Infrastructure.Input.csproj|solutionrelative:promocoes.infrastructure\\promocoes.infrastructure.input\\repositories\\writebusinessrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{285E4318-2CF6-48E0-8BB6-1C5DAD247043}|Promocoes.Application\\Promocoes.Application.Input\\Promocoes.Application.Input.csproj|c:\\repositories\\project-promo-back\\promocoes.application\\promocoes.application.input\\receivers\\businessreceiver\\insert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{285E4318-2CF6-48E0-8BB6-1C5DAD247043}|Promocoes.Application\\Promocoes.Application.Input\\Promocoes.Application.Input.csproj|solutionrelative:promocoes.application\\promocoes.application.input\\receivers\\businessreceiver\\insert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{285E4318-2CF6-48E0-8BB6-1C5DAD247043}|Promocoes.Application\\Promocoes.Application.Input\\Promocoes.Application.Input.csproj|c:\\repositories\\project-promo-back\\promocoes.application\\promocoes.application.input\\services\\imgur\\oauth2\\imguruploadimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{285E4318-2CF6-48E0-8BB6-1C5DAD247043}|Promocoes.Application\\Promocoes.Application.Input\\Promocoes.Application.Input.csproj|solutionrelative:promocoes.application\\promocoes.application.input\\services\\imgur\\oauth2\\imguruploadimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{285E4318-2CF6-48E0-8BB6-1C5DAD247043}|Promocoes.Application\\Promocoes.Application.Input\\Promocoes.Application.Input.csproj|c:\\repositories\\project-promo-back\\promocoes.application\\promocoes.application.input\\receivers\\userreceiver\\verify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{285E4318-2CF6-48E0-8BB6-1C5DAD247043}|Promocoes.Application\\Promocoes.Application.Input\\Promocoes.Application.Input.csproj|solutionrelative:promocoes.application\\promocoes.application.input\\receivers\\userreceiver\\verify.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserQueries.cs",
-              "DocumentMoniker": "C:\\Repositories\\project-promo-back\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\UserQueries.cs",
-              "RelativeDocumentMoniker": "Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\UserQueries.cs",
-              "ToolTip": "C:\\Repositories\\project-promo-back\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\UserQueries.cs",
-              "RelativeToolTip": "Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\UserQueries.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAowEIAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T19:11:31.641Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ImgurUploadImage.cs",
-              "DocumentMoniker": "C:\\Repositories\\project-promo-back\\Promocoes.Application\\Promocoes.Application.Input\\Services\\Imgur\\OAuth2\\ImgurUploadImage.cs",
-              "RelativeDocumentMoniker": "Promocoes.Application\\Promocoes.Application.Input\\Services\\Imgur\\OAuth2\\ImgurUploadImage.cs",
-              "ToolTip": "C:\\Repositories\\project-promo-back\\Promocoes.Application\\Promocoes.Application.Input\\Services\\Imgur\\OAuth2\\ImgurUploadImage.cs",
-              "RelativeToolTip": "Promocoes.Application\\Promocoes.Application.Input\\Services\\Imgur\\OAuth2\\ImgurUploadImage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T18:54:10.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Insert.cs",
-              "DocumentMoniker": "C:\\Repositories\\project-promo-back\\Promocoes.Application\\Promocoes.Application.Input\\Receivers\\BusinessReceiver\\Insert.cs",
-              "RelativeDocumentMoniker": "Promocoes.Application\\Promocoes.Application.Input\\Receivers\\BusinessReceiver\\Insert.cs",
-              "ToolTip": "C:\\Repositories\\project-promo-back\\Promocoes.Application\\Promocoes.Application.Input\\Receivers\\BusinessReceiver\\Insert.cs",
-              "RelativeToolTip": "Promocoes.Application\\Promocoes.Application.Input\\Receivers\\BusinessReceiver\\Insert.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwCQAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T19:13:45.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WriteBusinessRepository.cs",
-              "DocumentMoniker": "C:\\Repositories\\project-promo-back\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Repositories\\WriteBusinessRepository.cs",
-              "RelativeDocumentMoniker": "Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Repositories\\WriteBusinessRepository.cs",
-              "ToolTip": "C:\\Repositories\\project-promo-back\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Repositories\\WriteBusinessRepository.cs",
-              "RelativeToolTip": "Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Repositories\\WriteBusinessRepository.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAYwB0AAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T18:17:43.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BusinessQueries.cs",
-              "DocumentMoniker": "C:\\Repositories\\project-promo-back\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\BusinessQueries.cs",
-              "RelativeDocumentMoniker": "Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\BusinessQueries.cs",
-              "ToolTip": "C:\\Repositories\\project-promo-back\\Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\BusinessQueries.cs",
-              "RelativeToolTip": "Promocoes.Infrastructure\\Promocoes.Infrastructure.Input\\Queries\\BusinessQueries.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAawD0AAAAcAAAA",
+              "Title": "Verify.cs",
+              "DocumentMoniker": "C:\\Repositories\\project-promo-back\\Promocoes.Application\\Promocoes.Application.Input\\Receivers\\UserReceiver\\Verify.cs",
+              "RelativeDocumentMoniker": "Promocoes.Application\\Promocoes.Application.Input\\Receivers\\UserReceiver\\Verify.cs",
+              "ToolTip": "C:\\Repositories\\project-promo-back\\Promocoes.Application\\Promocoes.Application.Input\\Receivers\\UserReceiver\\Verify.cs",
+              "RelativeToolTip": "Promocoes.Application\\Promocoes.Application.Input\\Receivers\\UserReceiver\\Verify.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T18:03:16.162Z",
+              "WhenOpened": "2024-08-07T13:42:02.132Z",
               "EditorCaption": ""
             }
           ]

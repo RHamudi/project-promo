@@ -13,6 +13,7 @@
     <PackageReference Include="AWSSDK.Core" Version="3.7.303.1" />
     <PackageReference Include="DotNetEnv" Version="3.0.0" />
     <PackageReference Include="mediatr" Version="12.1.1" />
+    <PackageReference Include="OneOf" Version="3.0.271" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.9" />
   </ItemGroup>
